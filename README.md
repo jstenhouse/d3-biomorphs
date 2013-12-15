@@ -8,6 +8,6 @@ Feel free to improve on this!
 
 
   [1]: http://en.wikipedia.org/wiki/Biomorphs
-  [2]: d3js.org
+  [2]: http://d3js.org/
   [3]: http://en.wikipedia.org/wiki/Richard_Dawkins
   [4]: http://en.wikipedia.org/wiki/The_Blind_Watchmaker
