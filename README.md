@@ -1,6 +1,6 @@
 ## d3 Biomorphs
 
-This is an attempt to visualize [Biomorphs][1] in the wonderful [d3.js][2]. 
+This is an attempt to visualize [Biomorphs][1] in [d3.js][2]. 
 
 Inspiration came from [Richard Dawkin's][3] book [The Blind Watchmaker][4].
 
