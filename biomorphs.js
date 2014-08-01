@@ -91,20 +91,7 @@ d3.select("div#genome-select")
 // default tree
 drawBiomorph(tree);
 
-// var savedGenomes = [];
-
 //////////// functions //////////////
-
-// TODO: better scaling for the square...
-// TODO: build up lineage after each choice
-
-// transition(treeWithBranch, tree);
-// transition(tree, treeWithBranch);
-// transition(insect4, insect5);
-// transition(tree, insect);
-// transition(geome, chalice);
-
-// evolution(insect4);
 
 var currentGenome;
 var evolutionId;
@@ -130,10 +117,6 @@ function reset() {
     initContainer();
 }
 
-// function save() {
-//     savedGenomes.push(currentGenome.slice(0));
-// }
-
 function evolve() {
     var offspring = mutate(currentGenome);
     transition(currentGenome, offspring);
@@ -145,37 +128,6 @@ function transition(genomeStart, genomeEnd) {
 
     var biomorphStart = generateBiomorph(genomeStart);
     var biomorphEnd = generateBiomorph(genomeEnd);
-
-    // var lines = [];
-
-    // // construct json with 'aaa' key goes to 'from' and 'to'
-    // for (var id in biomorphStart) {
-    //     var line = {from: {}, to: {}};
-    //     line['from'][id] = biomorphStart[id];
-    //     if (biomorphEnd.hasOwnProperty(id)) {
-    //         line['to'][id] = biomorphEnd[id];
-    //     } else {
-    //         // make to the same as from so that it transitions out
-    //         line['to'][id] = biomorphStart[id];
-    //     }
-    //     lines.push(line);
-    // }
-
-    // // look for id's in end that aren't in start
-    // for (var id in biomorphEnd) {
-
-    // }
-
-    // update x1 ... y2 with functions that add offsets and handle transitions
-
-    // var line = container.selectAll("line").data(lines);
-
-    // line.enter().append("line").attr("x1", x1)
-    //                             .attr("y1", y1)
-    //                             .attr("x2", x2)
-    //                             .attr("y2", y2)
-    //                             .attr("stroke-width", 2)
-    //                             .attr("stroke", "black");
 
     var lines = {};
 
@@ -243,64 +195,6 @@ function drawBiomorph(genome) {
 
     drawLines(container, xOffset, yOffset, biomorph);
 }
-
-// function drawBiomorphsOnGrid(genome) {
-
-//     // build up offspring
-//     var genomes = [];
-//     for (var i = 0; i < 4; i++) {
-//         genomes.push(mutate(genome));
-//     };
-//     genomes.push(genome);
-//     for (var i = 0; i < 4; i++) {
-//         genomes.push(mutate(genome));
-//     };
-
-//     drawGrid(genomes);
-// }
-
-// function drawGrid(genomes) {
-
-//     var container = initContainer();
-
-//     var rows = 3;
-//     var columns = 3;
-
-//     var rectWidth = width / columns;
-//     var rectHeight = height / rows;
-
-//     var rect = container.selectAll("rect").data(genomes);
-
-//     rect.enter().append("rect").attr("fill", "white")
-//                                 .attr("x", function(d, i) {
-//                                     return (i % 3) * rectWidth;    
-//                                 })
-//                                 .attr("y", function(d, i) {
-//                                     return Math.floor((i / 3)) * rectHeight;
-//                                 })
-//                                 .attr("width", rectWidth)
-//                                 .attr("height", rectHeight)
-//                                 .on("click", function(genome, i) {
-//                                     if (i != 4) {
-//                                         drawBiomorphsOnGrid(genome);
-//                                     }
-//                                 })
-//                                 .on("mouseover", function() {
-//                                     d3.select(this).style("stroke", "gray");
-//                                 })
-//                                 .on("mouseout", function() {
-//                                     d3.select(this).style("stroke", null);
-//                                 })
-//                                 .each(function(genome, i) {
-//                                     var rect = d3.select(this);
-//                                     var centerX = (parseInt(rect.attr("width")) / 2) + parseInt(rect.attr("x"));
-//                                     var centerY = (parseInt(rect.attr("height")) / 2) + parseInt(rect.attr("y"));
-//                                     var biomorph = generateBiomorph(genome);
-//                                     // get height and width of biomorph (max x - min x), (max y - min y)
-//                                     // if height or width is greater than rect's height, scale ???
-//                                     drawLines(container, centerX, centerY + 25, biomorph);
-//                                 });
-// }
 
 function initContainer() {
     d3.select("svg").remove();
